@@ -1,8 +1,8 @@
-require 'socket'
+require 'sinatra'
 
-server = TCPServer.open('0.0.0.0', 8080)
+set :bind, '0.0.0.0'
+set :port, 8080
 
-while connection = server.accept
-  connection.write "Hello world!!"
-  connection.close 
+get '/' do
+  'Hello Ruby World !'
 end
